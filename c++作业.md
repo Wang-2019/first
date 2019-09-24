@@ -81,3 +81,61 @@ int main(){
 	return 0;
 } 
 ```
+# 3.5
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	string s,space,nospace;
+	while(cin>>s){
+		space+=s;
+		space+=' ';
+		nospace+=s;
+	}
+	cout<<"不带空格的是："<<nospace<<endl;
+	cout<<"带空格的是："<<space<<endl;
+	return 0;
+} 
+```
+# 3.20
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	vector<int> v;
+	int a;
+	for(int i=0;i<10;i++){
+		cin>>a;
+		v.push_back(a);
+	}
+	for(int i=0;i<9;i++){
+		cout<<v[i]+v[i+1]<<' ';
+	}
+	cout<<endl;
+	cout<<"改写后："<<endl;
+	for(int i=0;i<10;i++){
+		cout<<v[i]+v[9-i]<<' ';
+	}
+	return 0;
+} 
+```
+# 3.23
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	vector<int> v;
+	int q;
+	while(cin>>q){
+		v.push_back(q);
+	}
+	for(auto i=v.begin();i!=v.end();i++){
+		*i=*i*2;
+		cout<<*i<<endl;
+	}
+	return 0;
+} 
+```
