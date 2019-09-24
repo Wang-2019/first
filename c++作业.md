@@ -139,3 +139,58 @@ int main(){
 	return 0;
 } 
 ```
+# 6.10
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+
+void swap1(int *a,int *b){
+	int temp;
+	temp=*a;
+	*a=*b;
+	*b=temp;
+	return;
+}
+int main(){
+	int a,b;
+	cin>>a>>b;
+	swap1(&a,&b);
+	cout<<a<<' '<<b;
+	return 0;
+} 
+```
+	引用类型形参代替指针（如下）
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+void swap1(int &a,int &b){
+	int temp;
+	temp=a;
+	a=b;
+	b=temp;
+	return;
+}
+int main(){
+	int a,b;
+	cin>>a>>b;
+	swap1(a,b);
+	cout<<a<<' '<<b;
+	return 0;
+} 
+```
+# 6.19
+	(a) 不合法，函数calc只有一个参数，不能传入两个值
+	(b) 合法
+	(c) 合法
+	(d) 合法
+# 6.39
+	(a) 新函数，作用于int常量
+	(b) 不合法，两个函数仅有返回类型不同
+	(c) reset是一个函数指针，指向double（double *）函数
+# 7.16
+
+	
+	
+	
+		
