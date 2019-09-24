@@ -50,3 +50,34 @@ int main(){
 	return 0;
 } 
 ```
+# 3.4
+比较两字符串是否相等
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	string s,t;
+	cin>>s>>t;
+	if(s>t) cout<<s<<endl;
+	else if(s<t) cout<<t<<endl;
+	else cout<<"两字符串相等"<<endl;
+	return 0;
+} 
+```
+比较两字符串是否等长
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	string s,t;
+	cin>>s>>t;
+	int num1=s.size();
+	int num2=t.size();
+	if(num1>num2) cout<<s<<endl;
+	else if(num1<num2) cout<<t<<endl;
+	else cout<<"两字符串相等"<<endl;
+	return 0;
+} 
+```
