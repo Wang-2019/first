@@ -193,7 +193,69 @@ int main(){
 	定义在public说明符后的成员在整个程序内可被访问，public成员定义类的接口
 	定义在private说明符后的成员可以被类中的成员访问，但是不能被使用该类的代码访问，private部分封装了类的实现细节
 # 7.27
+```C++
+#include <string>
+#include <iostream>
 
+class Screen {
+    public:
+        using pos = std::string::size_type;
+
+        Screen() = default;
+        Screen(pos ht, pos wd):height(ht), width(wd){ }
+        Screen(pos ht, pos wd, char c):height(ht), width(wd), contents(ht*wd, c){ }
+
+        char get() const { return contents[cursor]; }
+        char get(pos r, pos c) const { return contents[r*width+c]; }
+        Screen &move(pos r, pos c);
+        Screen &set(char);
+        Screen &set(pos, pos, char);
+        Screen &display(std::ostream &os) {do_display(os); return *this;}
+        const Screen &display(std::ostream &os) const {do_display(os); return *this;}
+
+    private:
+        pos cursor = 0;
+        pos height = 0, width = 0;
+        std::string contents;
+        void do_display(std::ostream &os) const {os << contents;}
+};
+
+inline Screen &Screen::move(pos r, pos c)
+{
+	pos row = r * width;
+	cursor = row + c;
+	return *this;
+}
+
+inline Screen &Screen::set(char c)
+{
+	contents[cursor] = c;
+	return *this;
+}
+
+inline Screen &Screen::set(pos r, pos col, char c)
+{
+	contents[r*width + col] = c;
+	return *this;
+}
+
+int main()
+{
+	Screen myScreen(5, 5, 'X');	
+	myScreen.move(4, 0).set('#').display(std::cout);
+	std::cout << "\n";
+	myScreen.display(std::cout);
+	std::cout << "\n";
+	return 0;
+}
+
+```
+# 7.49
+	(a) 合法
+	(b) 不合法，Sales_data与Sales_data &不是一个类型
+	(c) 不合法，combine本身需要有值传入，所以不应该用const
+# 7.58
+	类的静态成员不应该在类的内部初始化
 	
 	
 		
