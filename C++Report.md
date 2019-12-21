@@ -30,7 +30,7 @@ TEST(Duration, elapsedInMicroSeconds) {
 ![Pfailed](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/failed.png)
 
 这样说明使用elapsedInUSec函数是会出现一定程度的误差，这样的误差可能是由于函数自身精度的问题所造成的，即小数点保留位数问题
-
+****************************************************************************************************************************************
 ```C++
 TEST(Duration, elapsedInMicroSeconds) {
     Duration dur;
@@ -51,7 +51,7 @@ TEST(Duration, elapsedInMicroSeconds) {
 ![Nfailed](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/Nfaild.png)
 
 这样说明迭代次数越多，误差越明显
-
+****************************************************************************************************************************************
 ```C++
 TEST(Duration, elapsedInMicroSeconds) {
     Duration dur;
