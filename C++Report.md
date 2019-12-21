@@ -48,7 +48,7 @@ TEST(Duration, elapsedInMicroSeconds) {
 }
 ```
 当迭代次数增加时也会报错
-![Nfailed](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/Nfailed.png)
+![Nfailed](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/Nfaild.png)
 
 这样说明迭代次数越多，误差越明显
 
