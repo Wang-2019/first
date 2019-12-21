@@ -1,0 +1,28 @@
+
+![www](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/build.png)
+**测试time类中的elapsedInUSec函数**
+```C++
+uint64_t Duration::elapsedInUSec() const {
+    uint64_t ticks = isPaused_ ? accumulated_ : readTsc() - startTick_ + accumulated_;
+    return ticks * ticksPerUSecFactor.load();
+}
+```
+```C++
+TEST(Duration, elapsedInMicroSeconds) {
+    Duration dur;
+    for (int i = 0; i< 10; i++) {
+        dur.reset();
+        auto start = std::chrono::steady_clock::now();
+        usleep(3);
+        auto diff = std::chrono::steady_clock::now() - start;
+        dur.pause();
+        ASSERT_LE(std::chrono::duration_cast<std::chrono::microseconds>(diff).count() - 3,
+                    dur.elapsedInUSec()) << "Inaccuracy in iteration " << i;
+        ASSERT_GE(std::chrono::duration_cast<std::chrono::microseconds>(diff).count() + 3,
+                    dur.elapsedInUSec()) << "Inaccuracy in iteration " << i;
+        ASSERT_EQ(std::chrono::duration_cast<std::chrono::microseconds>(diff).count(),
+                  dur.elapsedUInSec()) << "Inaccuracy in iteration " << i;
+
+    }
+}
+```
