@@ -26,6 +26,11 @@ TEST(Duration, elapsedInMicroSeconds) {
     }
 }
 ```
+
 当使用ASSERT_EQ函数测试elapsedInUSec函数是会报错
-![failed](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/failed.png)
+![Pfailed](https://github.com/Wang-2019/first/blob/C%2B%2Bhomework/failed.png)
+
 这样说明使用elapsedInUSec函数是会出现一定程度的误差，这样的误差可能是由于函数自身精度的问题所造成的，即小数点保留位数问题
+
+当迭代次数过多时也会报错
+![Nfailed]()
